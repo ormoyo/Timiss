@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.ormoyo.prototype.ui.EditTextWithSuffix
+        android:id="@+id/app_hour_field"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="@string/hours"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxValue="23"
+        app:suffix="Hours"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.ormoyo.prototype.ui.EditTextWithSuffix
+        android:id="@+id/app_minute_field"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/minutes"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/app_hour_field"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxValue="60"
+        app:suffix="Minutes"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <com.ormoyo.prototype.ui.EditTextWithSuffix
+        android:id="@+id/app_second_field"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="@string/seconds"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/app_minute_field"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxValue="60"
+        app:suffix="Seconds"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

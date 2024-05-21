@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Timiss</string>
+    <string name="login">להתחבר</string>
+    <string name="name">שם</string>
+    <string name="password">סיסמה</string>
+    <string name="hours">שעות</string>
+    <string name="minutes">דקות</string>
+    <string name="seconds">שניות</string>
+    <string name="confirm">אישור</string>
+    <string name="cancel">ביטול</string>
+    <string name="wrong_password">סיסמה לא נכונה</string>
+    <string name="invalid_use_time">זמן שימוש שגוי</string>
+    <string name="missing_username_password">אי אפשר ליצור משתמש בלי שם או סיסמה</string>
+    <string name="enter">להכנס</string>
+    <string name="switchToMain">להחליף</string>
+    <string name="email">אימייל</string>
+    <string name="add_account">להוסיף משתמש</string>
+    <string name="set_use_time">קבע זמן שימוש</string>
+    <string name="choose_username">בחר שם משתמש</string>
+    <string name="ask_usage_permission">אשר רשות</string>
+    <string name="settings">הגדרות</string>
+    <string name="sun">א</string>
+    <string name="mon">ב</string>
+    <string name="tue">ג</string>
+    <string name="wen">ד</string>
+    <string name="thu">ה</string>
+    <string name="fri">ו</string>
+    <string name="sat">ז</string>
+    <string name="task_journal">יומן משימות</string>
+</resources>

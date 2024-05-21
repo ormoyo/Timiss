@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="EditTextWithSuffix">
+        <attr name="suffix" format="string|reference" />
+        <attr name="maxValue" format="integer" />
+        <attr name="minValue" format="integer" />
+    </declare-styleable>
+</resources>
