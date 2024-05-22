@@ -19,7 +19,9 @@ import android.widget.EditText;
 
 import com.ormoyo.timiss.R;
 
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class AddTaskFragment extends DialogFragment
@@ -38,11 +40,12 @@ public class AddTaskFragment extends DialogFragment
 
         builder.setTitle("Add Task");
         builder.setView(view);
+
         EditText start = view.findViewById(R.id.startTime);
         EditText end = view.findViewById(R.id.endTime);
 
-        builderd.setPositiveButton("euje", ((v) -> {
-            SharedPreferences preferences = getActivity().getSharedPreferences("MAIN", Context.MODE_PRIVATE);
+        builder.setPositiveButton(R.string.add_task, ((dialog, which) -> {
+            SharedPreferences preferences = requireActivity().getSharedPreferences("MAIN", Context.MODE_PRIVATE);
             Set<String> oldSet = preferences.getStringSet("Tasks", new HashSet<>());
 
             Set<String> set = new HashSet<>(oldSet);
@@ -52,6 +55,7 @@ public class AddTaskFragment extends DialogFragment
             editor.putStringSet("Tasks", set);
 
             editor.apply();
+            dismiss();
         }));
 
         return builder.create();

@@ -1,9 +1,12 @@
 package com.ormoyo.timiss.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -11,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.ormoyo.timiss.R;
+import com.ormoyo.timiss.ui.fragments.AddTaskFragment;
+
+import java.util.Set;
 
 public class CalendarActivity extends AppCompatActivity
 {
@@ -22,17 +28,16 @@ public class CalendarActivity extends AppCompatActivity
         setContentView(R.layout.activity_calendar);
 
         setSupportActionBar(findViewById(R.id.toolbar));
-        if (findViewById(R.id.calendarTasks) instanceof ConstraintLayout layout)
+
+        SharedPreferences preferences = getSharedPreferences("MAIN", Context.MODE_PRIVATE);
+        Set<String> tasks = preferences.getStringSet("Tasks", null);
+
+        if (findViewById(R.id.addTask) instanceof Button button)
         {
-            for (int i = 0; i < 24; i++)
-            {
-                TextView timeStamp = new TextView(this);
-
-                timeStamp.setText((i < 10 ? "0" : "") + i + ":00");
-                timeStamp.setTextColor(getResources().getColor(R.color.main_text, getTheme()));
-
-                layout.addView(timeStamp);
-            }
+            button.setOnClickListener((v) -> {
+                AddTaskFragment fragment = new AddTaskFragment();
+                fragment.show(getSupportFragmentManager(), "add_task");
+            });
         }
     }
 }
