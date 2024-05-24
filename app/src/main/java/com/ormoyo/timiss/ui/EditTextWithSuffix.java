@@ -52,8 +52,7 @@ public class EditTextWithSuffix extends androidx.appcompat.widget.AppCompatEditT
 
             List<InputFilter> filters = new ArrayList<>();
             for(InputFilter inputFilter : getFilters()) {
-                if(inputFilter instanceof InputFilter.LengthFilter) {
-                    InputFilter.LengthFilter filter = (InputFilter.LengthFilter) inputFilter;
+                if(inputFilter instanceof InputFilter.LengthFilter filter) {
                     filters.add(new InputFilter.LengthFilter(filter.getMax() + 1 + suffix.length()));
                 }else if(inputFilter instanceof InputFilter.AllCaps) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {

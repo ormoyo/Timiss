@@ -31,8 +31,7 @@ public class AppProfile implements Serializable {
     public boolean equals(Object o) {
         if(this == o) return true;
         if(o instanceof AppInfo) return Objects.equals(packageName, ((AppInfo)o).getName());
-        if(!(o instanceof AppProfile)) return false;
-        AppProfile profile = (AppProfile) o;
+        if(!(o instanceof AppProfile profile)) return false;
         return Objects.equals(packageName, profile.packageName);
     }
 

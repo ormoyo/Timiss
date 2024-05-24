@@ -48,7 +48,7 @@ public class AppUseTimeService extends Service {
     private static final int firebaseUpdateInterval = 60;
     private int firebaseUpdateTime;
 
-    private BroadcastReceiver continueUsingAppBr = new BroadcastReceiver() {
+    private final BroadcastReceiver continueUsingAppBr = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             String app = intent.getStringExtra("App");
