@@ -1,20 +1,17 @@
-public class AppInfo {
-    // ... your existing fields (packageName, name, icon)
+package com.ormoyo.prototype;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AppInfo appInfo = (AppInfo) o;
-        return Objects.equals(packageName, appInfo.packageName) &&
-                Objects.equals(name, appInfo.name) &&
-                Objects.equals(icon, appInfo.icon);
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ */
+public class ExampleUnitTest {
+    @Test
+    public void addition_isCorrect() {
+        assertEquals(4, 2 + 2);
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(packageName, name, icon);
-    }
-
-    // ... your other methods (constructors, getters, etc.)
 }
