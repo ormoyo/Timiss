@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.myApp">
+    package="com.ormoyo.timiss">
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -40,13 +40,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".Timiss">
-        <activity android:name=".MainActivity" />
         <activity
             android:exported="false"
             android:theme="@style/AppTheme"
             android:name=".activities.CalendarActivity" />
-
-        <service android:name=".MyService" />
+        <activity android:name=".activities.TodoListActivity"/>
 
         <service
             android:enabled="true"
@@ -63,14 +61,14 @@
         </receiver>
         <receiver
             android:exported="true"
-            android:name=".AlarmReceiver"></receiver>
+            android:name=".AlarmReceiver"/>
 
         <activity
             android:excludeFromRecents="true"
             android:exported="false"
             android:noHistory="true"
             android:theme="@style/Theme.MaterialComponents.Dialog"
-            android:name=".activities.OutOfTimeActivity"></activity>
+            android:name=".activities.OutOfTimeActivity"/>
         <activity
             android:exported="true"
             android:name=".activities.MainActivity">

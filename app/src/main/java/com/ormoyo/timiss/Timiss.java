@@ -12,30 +12,33 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.ormoyo.timiss.tasks.TaskManager;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-public class Timiss extends Application implements DefaultLifecycleObserver {
+public final class Timiss extends Application implements DefaultLifecycleObserver {
     private static Timiss instance;
+    private TaskManager manager;
     private List<AppInfo> apps;
 
     public static Timiss getInstance() {
         return instance;
     }
-    
+
+
+    public TaskManager getTaskManager()
+    {
+        return this.manager;
+    }
+
     public List<AppInfo> getInstalledApps() {
         return Collections.unmodifiableList(apps);
     }
@@ -45,8 +48,10 @@ public class Timiss extends Application implements DefaultLifecycleObserver {
         SharedPreferences preferences = getSharedPreferences("MAIN", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
-        Intent intent = new Intent(this, AppUseTimeService.class);
-        startService(intent);
+        this.manager.save();
+
+//        Intent intent = new Intent(this, AppUseTimeService.class);
+//        startService(intent);
     }
 
     @Override
@@ -54,14 +59,20 @@ public class Timiss extends Application implements DefaultLifecycleObserver {
     }
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
         super.onCreate();
         instance = this;
 
-        SharedPreferences preferences = getSharedPreferences("ACCOUNT_PROFILES", Context.MODE_PRIVATE);
-        SharedPreferences main = getSharedPreferences("MAIN", Context.MODE_PRIVATE);
+        try
+        {
+            this.manager = new TaskManager(this);
+            this.manager.load();
+        } catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
 
-        String currentAccountName = main.getString("CurrentAccount", null);
         apps = getApps();
     }
 
@@ -94,7 +105,8 @@ public class Timiss extends Application implements DefaultLifecycleObserver {
     private static Bitmap drawableToBitmap(Drawable drawable) {
         Bitmap bitmap = null;
 
-        if(drawable instanceof BitmapDrawable bitmapDrawable) {
+        if(drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             if(bitmapDrawable.getBitmap() != null) {
                 return bitmapDrawable.getBitmap();
             }

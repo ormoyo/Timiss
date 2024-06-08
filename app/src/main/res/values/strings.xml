@@ -3,6 +3,7 @@
     <string name="add_task" translatable="false">Add Task</string>
     <string name="start_time" translatable="false">Start Time</string>
     <string name="end_time" translatable="false">End Time</string>
+    <string name="date" translatable="false">Date</string>
     <string name="login">Login</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
@@ -30,6 +31,29 @@
     <string name="fri">Fri</string>
     <string name="sat">Sat</string>
     <string name="task_journal">Task Journal</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="time0" translatable="false">00:00</string>
+    <string name="time1" translatable="false">01:00</string>
+    <string name="time2" translatable="false">02:00</string>
+    <string name="time3" translatable="false">03:00</string>
+    <string name="time4" translatable="false">04:00</string>
+    <string name="time5" translatable="false">05:00</string>
+    <string name="time6" translatable="false">06:00</string>
+    <string name="time7" translatable="false">07:00</string>
+    <string name="time8" translatable="false">08:00</string>
+    <string name="time9" translatable="false">09:00</string>
+    <string name="time10" translatable="false">10:00</string>
+    <string name="time11" translatable="false">11:00</string>
+    <string name="time12" translatable="false">12:00</string>
+    <string name="time13" translatable="false">13:00</string>
+    <string name="time14" translatable="false">14:00</string>
+    <string name="time15" translatable="false">15:00</string>
+    <string name="time16" translatable="false">16:00</string>
+    <string name="time17" translatable="false">17:00</string>
+    <string name="time18" translatable="false">18:00</string>
+    <string name="time19" translatable="false">19:00</string>
+    <string name="time20" translatable="false">20:00</string>
+    <string name="time21" translatable="false">21:00</string>
+    <string name="time22" translatable="false">22:00</string>
+    <string name="time23" translatable="false">23:00</string>
+    <string name="time24" translatable="false">24:00</string>
 </resources>

@@ -4,20 +4,18 @@ import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ormoyo.timiss.AppUseTimeService;
 import com.ormoyo.timiss.R;
 import com.ormoyo.timiss.Timiss;
 import com.ormoyo.timiss.ui.fragments.AskUsagePermissionFragment;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
@@ -31,7 +29,23 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
             startActivity(intent);
         });
+        findViewById(R.id.todoBtn).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, TodoListActivity.class);
+            startActivity(intent);
+        });
 
+        Calendar calendar = Calendar.getInstance();
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+
+        SharedPreferences preferences = getPreferences(Context.MODE_PRIVATE);
+        int day = preferences.getInt("day", -1);
+
+        if (day != currentDay)
+        {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("day", currentDay);
+            editor.apply();
+        }
 
         if(!hasUsagePermission(this))
             new AskUsagePermissionFragment().show(getSupportFragmentManager(), "ask_usage_permission");
